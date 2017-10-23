@@ -14,6 +14,12 @@ SearchMaker.prototype = {
     },
     // 添加或修改query
     set: function(key, value, del) {
+        
+        // 如果 value 是 undefined 不记录的 url 里
+        if (value === undefined) {
+            return this;
+        }
+
         var k = encodeURIComponent(key),
         v = value ? encodeURIComponent(value) : '',
         me = this,
